@@ -78,7 +78,6 @@ vishveshsharma2005-skill-swap-platform/
     └── signup.html
 
 ---
----
 
 ## Usage
 
