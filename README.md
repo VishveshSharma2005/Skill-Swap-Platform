@@ -100,11 +100,11 @@ vishveshsharma2005-skill-swap-platform/
 **Team Name:** Noob Coderz  
 **Hackathon Team ID:** Team 0278  
 
-| Name           | Email                         | Phone        |
-|----------------|-------------------------------|--------------|
-| Vishvesh Sharma| vishesh3@gmail.com            | 9898977739   |
-| Manas Mehta    | manasmehta1123@gmail.com      | 7567060305   |
-| Rishi Rami     | rishirami876@gmail.com        | 6351877993   |
+| Name           | Email                         | 
+|----------------|-------------------------------|
+| Vishvesh Sharma| sharmavishesh3@gmail.com      |
+| Manas Mehta    | manasmehta1123@gmail.com      |
+| Rishi Rami     | rishirami876@gmail.com        |
 
 **Reviewer:** Akash Pandey (apan)
 
