@@ -1,26 +1,28 @@
 
 # Skill Swap Platform
 
-The **Skill Swap Platform** is a web application designed to facilitate the **exchange of skills** among users. This platform enables individuals to connect, share their expertise, and learn from one another in a collaborative environment.
+## Overview
+
+The **Skill Swap Platform** is a web application designed to facilitate the exchange of skills among users. This platform enables individuals to connect, share their expertise, and learn from one another in a collaborative environment.
 
 ---
 
 ## Table of Contents
 
-- ✨ Features  
-- 🛠️ Technologies Used  
-- 🚀 Installation  
-- 📌 Usage  
-- 👥 Team Information  
-- 📄 License  
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Team Information](#team-information)
+- [License](#license)
 
 ---
 
 ## Features
 
-- ✅ User Registration & Login  
+- 🧑‍💻 User Registration & Login  
 - 👤 Profile Management  
-- 📋 Skill Listing & Searching  
+- 📝 Skill Listing & Searching  
 - 🔄 Skill Swap Requests Between Users  
 - 💻 User-friendly Web Interface  
 
@@ -28,9 +30,9 @@ The **Skill Swap Platform** is a web application designed to facilitate the **ex
 
 ## Technologies Used
 
-- **Frontend**: HTML, CSS  
-- **Backend**: Python (Flask)  
-- **Database**: SQLite  
+- **Frontend:** HTML, CSS  
+- **Backend:** Python (Flask)  
+- **Database:** SQLite  
 
 ---
 
@@ -39,7 +41,6 @@ The **Skill Swap Platform** is a web application designed to facilitate the **ex
 To set up the **Skill Swap Platform** locally, follow these steps:
 
 ### 1. Clone the Repository
-
 ```bash
 git clone https://github.com/VishveshSharma2005/Skill-Swap-Platform.git
 cd Skill-Swap-Platform
@@ -47,14 +48,12 @@ cd Skill-Swap-Platform
 
 ### 2. Install Dependencies
 
-Make sure you have Python 3 installed. Then, install required packages:
-
+Make sure you have Python 3 installed. Then run:
 ```bash
 pip install -r requirements.txt
 ```
 
 ### 3. Run the Application
-
 ```bash
 python app.py
 ```
@@ -76,16 +75,19 @@ Visit: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 ## Team Information
 
-**Team Name**: Noob Coderz  
-**Hackathon Team ID**: Team 0278  
+**Team Name:** Noob Coderz  
+**Hackathon Team ID:** Team 0278  
 
-| Name            | Email                         | Phone       |
-|-----------------|-------------------------------|-------------|
-| Vishvesh Sharma (Team Leader) | vishesh3@gmail.com         | 9898977739  |
-| Manas Mehta     | manasmehta1123@gmail.com      | 7567060305  |
-| Rishi Rami      | rishirami876@gmail.com        | 6351877993  |
+| Name           | Email                         | Phone        |
+|----------------|-------------------------------|--------------|
+| Vishvesh Sharma| vishesh3@gmail.com            | 9898977739   |
+| Manas Mehta    | manasmehta1123@gmail.com      | 7567060305   |
+| Rishi Rami     | rishirami876@gmail.com        | 6351877993   |
 
-**Reviewer**: Akash Pandey (`apan`)
+**Reviewer:** Akash Pandey (apan)
 
 ---
 
+## License
+
+This project is licensed under the **MIT License**. See the `LICENSE` file for more details.
