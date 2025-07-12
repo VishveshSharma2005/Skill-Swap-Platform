@@ -1,13 +1,13 @@
-# 🛠️ Skill-Swap-Platform
+# Skill-Swap-Platform
 
-## 🚀 Odoo Hackathon 25
+## Odoo Hackathon 25
 
-## 📌 Selected Problem Statement
+## Selected Problem Statement
 > **Skill Swap Platform**
 
 ---
 
-## 👥 Team Information
+## Team Information
 
 | Role          | Name         | Email                        | Phone        |
 |---------------|-------------|------------------------------|-------------:|
