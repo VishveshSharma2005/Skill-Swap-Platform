@@ -7,12 +7,12 @@ The **Skill Swap Platform** is a web application designed to facilitate the **ex
 
 ## Table of Contents
 
-- [✨ Features](#-features)  
-- [🛠️ Technologies Used](#-technologies-used)  
-- [🚀 Installation](#-installation)  
-- [📌 Usage](#-usage)  
-- [👥 Team Information](#-team-information)  
-- [📄 License](#-license)  
+- ✨ Features  
+- 🛠️ Technologies Used  
+- 🚀 Installation  
+- 📌 Usage  
+- 👥 Team Information  
+- 📄 License  
 
 ---
 
