@@ -1,22 +1,91 @@
-# Skill-Swap-Platform
 
-## Odoo Hackathon 25
+# Skill Swap Platform
 
-## Selected Problem Statement
-> **Skill Swap Platform**
+The **Skill Swap Platform** is a web application designed to facilitate the **exchange of skills** among users. This platform enables individuals to connect, share their expertise, and learn from one another in a collaborative environment.
+
+---
+
+## Table of Contents
+
+- [✨ Features](#-features)  
+- [🛠️ Technologies Used](#-technologies-used)  
+- [🚀 Installation](#-installation)  
+- [📌 Usage](#-usage)  
+- [👥 Team Information](#-team-information)  
+- [📄 License](#-license)  
+
+---
+
+## Features
+
+- ✅ User Registration & Login  
+- 👤 Profile Management  
+- 📋 Skill Listing & Searching  
+- 🔄 Skill Swap Requests Between Users  
+- 💻 User-friendly Web Interface  
+
+---
+
+## Technologies Used
+
+- **Frontend**: HTML, CSS  
+- **Backend**: Python (Flask)  
+- **Database**: SQLite  
+
+---
+
+## Installation
+
+To set up the **Skill Swap Platform** locally, follow these steps:
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/VishveshSharma2005/Skill-Swap-Platform.git
+cd Skill-Swap-Platform
+```
+
+### 2. Install Dependencies
+
+Make sure you have Python 3 installed. Then, install required packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Run the Application
+
+```bash
+python app.py
+```
+
+### 4. Open in Browser
+
+Visit: [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+---
+
+## Usage
+
+1. Sign up for a new account or log in with an existing one.  
+2. Create your profile and list your skills.  
+3. Browse other users’ profiles and send skill swap requests.  
+4. Manage your profile and track ongoing or completed swaps.
 
 ---
 
 ## Team Information
 
-| Role          | Name         | Email                        | Phone        |
-|---------------|-------------|------------------------------|-------------:|
-| Team Leader   | Vishvesh     | sharmavishesh3@gmail.com     | 9898977739   |
-| Team Member 1 | Manas Mehta  | manasmehta1123@gmail.com     | 7567060305   |
-| Team Member 2 | Rishi Rami   | rishirami876@gmail.com       | 6351877993   |
+**Team Name**: Noob Coderz  
+**Hackathon Team ID**: Team 0278  
 
-- **Team Name:** Noob Coderz  
-- **Official Hackathon Team ID:** Team 0278  
-- **Reviewer:** Akash Pandey (apan)
+| Name            | Email                         | Phone       |
+|-----------------|-------------------------------|-------------|
+| Vishvesh Sharma (Team Leader) | vishesh3@gmail.com         | 9898977739  |
+| Manas Mehta     | manasmehta1123@gmail.com      | 7567060305  |
+| Rishi Rami      | rishirami876@gmail.com        | 6351877993  |
+
+**Reviewer**: Akash Pandey (`apan`)
 
 ---
+
