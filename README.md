@@ -2,6 +2,13 @@
 
 🌐 **Live MVP:** [Click to try it!](https://183c4d59-8564-4fc6-9a01-1f1e9318a69f-00-fqz0bt4liuaa.sisko.replit.dev/)
 
+> ⚠️ **Note:** This `.dev` link is temporary and may stop working when the server sleeps.  
+> If it doesn’t work, please visit our Replit project directly:  
+> 👉 [https://replit.com/@sharmavishvesh3/Skill-Swap-Platform](https://replit.com/@sharmavishvesh3/Skill-Swap-Platform)  
+> You can **Remix** the repl or click **Run** there to see the live demo anytime!  
+> 📹 **You can also watch the live working model video here:**  
+> [Watch Live Video Demo!](https://drive.google.com/drive/folders/1q8SX1cuSsC74-WSr0DKyuVqNxBTTKRig)
+
 ---
 
 ## Overview
