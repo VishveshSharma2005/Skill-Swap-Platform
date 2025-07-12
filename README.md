@@ -102,7 +102,7 @@ vishveshsharma2005-skill-swap-platform/
 
 | Name           | Email                         | 
 |----------------|-------------------------------|
-| Vishvesh Sharma| sharmavishesh3@gmail.com      |
+| Vishvesh Sharma| sharmavishvesh3@gmail.com      |
 | Manas Mehta    | manasmehta1123@gmail.com      |
 | Rishi Rami     | rishirami876@gmail.com        |
 
