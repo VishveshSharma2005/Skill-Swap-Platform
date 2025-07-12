@@ -64,21 +64,18 @@ Visit: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 ---
 
-## Usage
-Directory structure:
-└── vishveshsharma2005-skill-swap-platform/
-    ├── README.md
-    ├── app.py
-    ├── requirements.txt
-    └── templates/
-        ├── browse_skills.html
-        ├── create_profile.html
-        ├── login.html
-        ├── my_profile.html
-        ├── my_requests.html
-        ├── profile.html
-        └── signup.html
-
+vishveshsharma2005-skill-swap-platform/
+├── app.py                  # Main Flask application
+├── requirements.txt        # Required Python packages
+├── README.md               # Project documentation
+└── templates/              # Front-end HTML templates
+    ├── browse_skills.html
+    ├── create_profile.html
+    ├── login.html
+    ├── my_profile.html
+    ├── my_requests.html
+    ├── profile.html
+    └── signup.html
 
 ---
 ---
