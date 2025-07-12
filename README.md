@@ -64,6 +64,9 @@ Visit: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 ---
 
+## 📁 Project Structure
+
+```
 vishveshsharma2005-skill-swap-platform/
 ├── app.py                  # Main Flask application
 ├── requirements.txt        # Required Python packages
@@ -76,6 +79,7 @@ vishveshsharma2005-skill-swap-platform/
     ├── my_requests.html
     ├── profile.html
     └── signup.html
+```
 
 ---
 
