@@ -7,7 +7,7 @@
 > 👉 [https://replit.com/@sharmavishvesh3/Skill-Swap-Platform](https://replit.com/@sharmavishvesh3/Skill-Swap-Platform)  
 > You can **Remix** the repl or click **Run** there to see the live demo anytime!  
 > 📹 **You can also watch the live working model video here:**  
-> [Watch Live Video Demo!](https://drive.google.com/drive/folders/1q8SX1cuSsC74-WSr0DKyuVqNxBTTKRig)
+> [https://drive.google.com/drive/folders/1q8SX1cuSsC74-WSr0DKyuVqNxBTTKRig](https://drive.google.com/drive/folders/1q8SX1cuSsC74-WSr0DKyuVqNxBTTKRig)
 
 ---
 
