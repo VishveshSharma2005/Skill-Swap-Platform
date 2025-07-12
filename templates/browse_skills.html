@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap Platform - Browse Skills</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a66c2;
+            --primary-dark: #004182;
+            --background: #111827;
+            --card-bg: #1f2937;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #374151;
+            --accent: #2563eb;
+            --green-accent: #10b981;
+            --orange-accent: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: var(--border);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-light);
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .btn {
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: var(--border);
+            color: var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-muted);
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Search and Filter Section */
+        .search-section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-row {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 300px;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--background);
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .availability-select {
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--background);
+            color: var(--text-light);
+            min-width: 200px;
+        }
+
+        .search-btn {
+            padding: 0.8rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* User Cards Grid */
+        .users-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .user-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .user-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            border-color: var(--primary);
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .profile-pic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            object-fit: cover;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-placeholder {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .user-info-section {
+            flex: 1;
+        }
+
+        .user-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .user-location {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .skills-section {
+            margin-bottom: 1rem;
+        }
+
+        .skills-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+
+        .skills-offered-label {
+            color: var(--green-accent);
+        }
+
+        .skills-wanted-label {
+            color: var(--orange-accent);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-tag {
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .skill-offered {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--green-accent);
+            border: 1px solid var(--green-accent);
+        }
+
+        .skill-wanted {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--orange-accent);
+            border: 1px solid var(--orange-accent);
+        }
+
+        .rating {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .request-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 100px;
+        }
+
+        .request-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .request-btn:hover {
+            background: #1d4ed8;
+            transform: scale(1.05);
+        }
+
+        .view-profile-btn {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .view-profile-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .page-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text-light);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn:hover {
+            background: var(--primary);
+        }
+
+        .page-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .search-row {
+                flex-direction: column;
+            }
+
+            .search-input {
+                min-width: auto;
+            }
+
+            .users-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .user-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .request-section {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('browse_skills') }}" class="logo">
+                <i class="fas fa-exchange-alt"></i>
+                SkillSwap Connect
+            </a>
+            <div class="nav-links">
+                <a href="{{ url_for('my_profile') }}" class="nav-link">My Profile</a>
+                <a href="{{ url_for('my_requests') }}" class="nav-link">My Requests</a>
+            </div>
+            <div class="user-info">
+                <span>Welcome!</span>
+                <a href="{{ url_for('logout') }}" class="btn btn-secondary">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <!-- Search and Filter Section -->
+        <div class="search-section">
+            <div class="search-row">
+                <select class="availability-select" id="availability-filter">
+                    <option value="">Any Availability</option>
+                    <option value="2025-07-15">Available Today</option>
+                    <option value="2025-07-20">Available This Week</option>
+                    <option value="2025-08-01">Available This Month</option>
+                </select>
+                <input type="text" class="search-input" id="search-input" placeholder="Search for skills, names, or expertise...">
+                <button class="search-btn" onclick="searchUsers()">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+        </div>
+
+        <!-- Users Grid -->
+        <div id="users-container">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Loading users...</p>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination-container" style="display: none;">
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        let totalPages = 1;
+
+        // Load users when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUsers();
+        });
+
+        // Search functionality
+        document.getElementById('search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchUsers();
+            }
+        });
+
+        function searchUsers() {
+            currentPage = 1;
+            loadUsers();
+        }
+
+        function loadUsers(page = 1) {
+            const search = document.getElementById('search-input').value;
+            const availability = document.getElementById('availability-filter').value;
+            
+            const params = new URLSearchParams({
+                page: page,
+                search: search,
+                availability: availability
+            });
+
+            fetch(`/api/users?${params}`)
+                .then(response => response.json())
+                .then(data => {
+                    displayUsers(data.users);
+                    updatePagination(data.pagination);
+                    currentPage = page;
+                    totalPages = data.pagination.total_pages;
+                })
+                .catch(error => {
+                    console.error('Error loading users:', error);
+                    document.getElementById('users-container').innerHTML = 
+                        '<div class="loading"><p>Error loading users. Please try again.</p></div>';
+                });
+        }
+
+        function displayUsers(users) {
+            const container = document.getElementById('users-container');
+            
+            if (users.length === 0) {
+                container.innerHTML = '<div class="loading"><p>No users found matching your criteria.</p></div>';
+                return;
+            }
+
+            const usersHTML = users.map(user => {
+                const profilePic = user.profile_picture ? 
+                    `<img src="data:image/jpeg;base64,${user.profile_picture}" alt="${user.name}" class="profile-pic" onclick="viewProfile(${user.id})" style="cursor: pointer;">` :
+                    `<div class="profile-placeholder" onclick="viewProfile(${user.id})" style="cursor: pointer;">${user.name.charAt(0).toUpperCase()}</div>`;
+
+                const skillsOffered = user.skills_offered.map(skill => 
+                    `<span class="skill-tag skill-offered">${skill.replace('_', ' ')}</span>`
+                ).join('');
+
+                const skillsWanted = user.skills_wanted.map(skill => 
+                    `<span class="skill-tag skill-wanted">${skill.replace('_', ' ')}</span>`
+                ).join('');
+
+                return `
+                    <div class="user-card">
+                        <div class="profile-section">
+                            ${profilePic}
+                        </div>
+                        
+                        <div class="user-info-section">
+                            <div class="user-name">${user.name}</div>
+                            <div class="user-location"><i class="fas fa-map-marker-alt"></i> ${user.location}</div>
+                            
+                            <div class="skills-section">
+                                <span class="skills-label skills-offered-label">Skills Offered →</span>
+                                <div class="skills-list">
+                                    ${skillsOffered}
+                                </div>
+                                
+                                <span class="skills-label skills-wanted-label">Skills Wanted →</span>
+                                <div class="skills-list">
+                                    ${skillsWanted}
+                                </div>
+                            </div>
+                            
+                            <div class="rating">⭐ ${(Math.random() * 1.5 + 3.5).toFixed(1)}/5.0</div>
+                        </div>
+                        
+                        <div class="request-section">
+                            <button class="request-btn" onclick="requestSkill(${user.id}, '${user.name}')">
+                                Request Skill
+                            </button>
+                            <button class="view-profile-btn" onclick="viewProfile(${user.id})">
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            container.innerHTML = `<div class="users-grid">${usersHTML}</div>`;
+        }
+
+        function updatePagination(pagination) {
+            const container = document.getElementById('pagination-container');
+            
+            if (pagination.total_pages <= 1) {
+                container.style.display = 'none';
+                return;
+            }
+
+            container.style.display = 'flex';
+
+            let paginationHTML = '';
+
+            // Previous button
+            paginationHTML += `
+                <button class="page-btn" ${!pagination.has_prev ? 'disabled' : ''} 
+                        onclick="loadUsers(${pagination.page - 1})">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            `;
+
+            // Page numbers
+            const startPage = Math.max(1, pagination.page - 2);
+            const endPage = Math.min(pagination.total_pages, pagination.page + 2);
+
+            if (startPage > 1) {
+                paginationHTML += `<button class="page-btn" onclick="loadUsers(1)">1</button>`;
+                if (startPage > 2) {
+                    paginationHTML += `<span class="page-btn" style="border: none; background: none;">...</span>`;
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                paginationHTML += `
+                    <button class="page-btn ${i === pagination.page ? 'active' : ''}" 
+                            onclick="loadUsers(${i})">${i}</button>
+                `;
+            }
+
+            if (endPage < pagination.total_pages) {
+                if (endPage < pagination.total_pages - 1) {
+                    paginationHTML += `<span class="page-btn" style="border: none; background: none;">...</span>`;
+                }
+                paginationHTML += `<button class="page-btn" onclick="loadUsers(${pagination.total_pages})">${pagination.total_pages}</button>`;
+            }
+
+            // Next button
+            paginationHTML += `
+                <button class="page-btn" ${!pagination.has_next ? 'disabled' : ''} 
+                        onclick="loadUsers(${pagination.page + 1})">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            `;
+
+            container.innerHTML = paginationHTML;
+        }
+
+        function requestSkill(userId, userName) {
+            const skill = prompt(`Which skill would you like to request from ${userName}?`);
+            if (!skill) return;
+
+            const message = prompt('Optional: Add a message with your request');
+
+            fetch('/api/request_skill', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 
+                    user_id: userId,
+                    skill: skill,
+                    message: message || ''
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Request sent successfully!');
+                } else {
+                    alert('Failed to send request. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to send request. Please try again.');
+            });
+        }
+
+        function viewProfile(userId) {
+            window.location.href = `/profile/${userId}`;
+        }
+    </script>
+</body>
+
+</html>

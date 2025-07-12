@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - SkillSwap Connect</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a66c2;
+            --primary-dark: #004182;
+            --background: #111827;
+            --card-bg: #1f2937;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #374151;
+            --accent: #2563eb;
+            --green-accent: #10b981;
+            --orange-accent: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: var(--border);
+        }
+
+        .nav-link.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn {
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background: var(--border);
+            color: var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-muted);
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--border);
+        }
+
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .profile-pic-large {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--primary);
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-placeholder-large {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-location {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .skills-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .skills-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skills-offered-title {
+            color: var(--green-accent);
+        }
+
+        .skills-wanted-title {
+            color: var(--orange-accent);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+
+        .skill-offered {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--green-accent);
+            border: 2px solid var(--green-accent);
+        }
+
+        .skill-wanted {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--orange-accent);
+            border: 2px solid var(--orange-accent);
+        }
+
+        .availability-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        .availability-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .availability-dates {
+            display: flex;
+            gap: 2rem;
+            color: var(--text-muted);
+        }
+
+        .availability-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .availability-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .availability-date {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 1rem;
+            }
+
+            .profile-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .profile-pic-large,
+            .profile-placeholder-large {
+                width: 150px;
+                height: 150px;
+            }
+
+            .profile-placeholder-large {
+                font-size: 3rem;
+            }
+
+            .profile-name {
+                font-size: 2rem;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .availability-dates {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('browse_skills') }}" class="logo">
+                <i class="fas fa-exchange-alt"></i>
+                SkillSwap Connect
+            </a>
+            <div class="nav-links">
+                <a href="{{ url_for('browse_skills') }}" class="nav-link">Browse Skills</a>
+                <a href="{{ url_for('my_profile') }}" class="nav-link active">My Profile</a>
+                <a href="{{ url_for('my_requests') }}" class="nav-link">My Requests</a>
+            </div>
+            <div class="user-info">
+                <a href="{{ url_for('logout') }}" class="btn btn-secondary">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <div class="profile-card">
+            <div class="profile-header">
+                {% if profile.profile_picture %}
+                    <img src="data:image/jpeg;base64,{{ profile.profile_picture }}" 
+                         alt="{{ profile.name }}" class="profile-pic-large">
+                {% else %}
+                    <div class="profile-placeholder-large">
+                        {{ profile.name[0].upper() }}
+                    </div>
+                {% endif %}
+                
+                <h1 class="profile-name">{{ profile.name }}</h1>
+                <p class="profile-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    {{ profile.location }}
+                </p>
+            </div>
+
+            <div class="skills-container">
+                <div class="skills-section">
+                    <h2 class="skills-title skills-offered-title">
+                        <i class="fas fa-star"></i>
+                        Skills I Offer
+                    </h2>
+                    <div class="skills-list">
+                        {% for skill in profile.skills_offered %}
+                            <span class="skill-tag skill-offered">{{ skill.replace('_', ' ') }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="skills-section">
+                    <h2 class="skills-title skills-wanted-title">
+                        <i class="fas fa-search"></i>
+                        Skills I Want
+                    </h2>
+                    <div class="skills-list">
+                        {% for skill in profile.skills_wanted %}
+                            <span class="skill-tag skill-wanted">{{ skill.replace('_', ' ') }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="availability-section">
+                <h2 class="availability-title">
+                    <i class="fas fa-calendar-alt"></i>
+                    My Availability
+                </h2>
+                <div class="availability-dates">
+                    <div class="availability-item">
+                        <span class="availability-label">Available From</span>
+                        <span class="availability-date">{{ profile.availability_start }}</span>
+                    </div>
+                    <div class="availability-item">
+                        <span class="availability-label">Available Until</span>
+                        <span class="availability-date">{{ profile.availability_end }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
