@@ -65,6 +65,25 @@ Visit: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 ---
 
 ## Usage
+Directory structure:
+└── vishveshsharma2005-skill-swap-platform/
+    ├── README.md
+    ├── app.py
+    ├── requirements.txt
+    └── templates/
+        ├── browse_skills.html
+        ├── create_profile.html
+        ├── login.html
+        ├── my_profile.html
+        ├── my_requests.html
+        ├── profile.html
+        └── signup.html
+
+
+---
+---
+
+## Usage
 
 1. Sign up for a new account or log in with an existing one.  
 2. Create your profile and list your skills.  
